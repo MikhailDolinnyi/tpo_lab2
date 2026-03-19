@@ -9,7 +9,7 @@ public class Log5 {
         this.LN5 = ln.calculate(5.0);
     }
 
-    // log₅(x) = ln(x) / ln(5)
+    // log_2(x) = ln(x) / ln(5)
     public double calculate(double x) {
         return ln.calculate(x) / LN5;
     }

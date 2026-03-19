@@ -1,6 +1,7 @@
 package ru.traphouse.functions.trig;
 
 public class Sin {
+
     private final double epsilon;
 
     public Sin(double epsilon) {
@@ -9,8 +10,12 @@ public class Sin {
 
     public double calculate(double x) {
         x = x % (2 * Math.PI);
-        if (x > Math.PI) x -= 2 * Math.PI;
-        if (x < -Math.PI) x += 2 * Math.PI;
+        if (x > Math.PI) {
+            x -= 2 * Math.PI;
+        }
+        if (x < -Math.PI) {
+            x += 2 * Math.PI;
+        }
 
         double result = 0;
         double term = x;

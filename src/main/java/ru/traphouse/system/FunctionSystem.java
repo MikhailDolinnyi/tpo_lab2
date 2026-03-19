@@ -2,17 +2,10 @@ package ru.traphouse.system;
 
 /**
  * Система функций:
- *   x <= 0 → TrigSystem
- *   x > 0  → LogSystem
+ * x <= 0 => TrigSystem
+ * x > 0  => LogSystem
  */
-public class FunctionSystem {
-    private final TrigSystem trigSystem;
-    private final LogSystem logSystem;
-
-    public FunctionSystem(TrigSystem trigSystem, LogSystem logSystem) {
-        this.trigSystem = trigSystem;
-        this.logSystem = logSystem;
-    }
+public record FunctionSystem(TrigSystem trigSystem, LogSystem logSystem) {
 
     public double calculate(double x) {
         if (x <= 0) {

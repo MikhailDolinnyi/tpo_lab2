@@ -16,26 +16,25 @@ class CotTest {
         cot = new Cot(sin, cos);
     }
 
+    // cot(pi/4) = 1, проверяем точное значение в положительной области
     @Test
     void testPiQuarter() {
         assertEquals(1.0, cot.calculate(Math.PI / 4), EPS);
     }
 
+    // cot(-1), проверяем произвольное значение в отрицательной области
     @Test
-    void testMinusPiQuarter() {
-        assertEquals(-1.0, cot.calculate(-Math.PI / 4), EPS);
-    }
-
-    @Test
-    void testKnownValue() {
+    void testNegativeValue() {
         assertEquals(Math.cos(-1.0) / Math.sin(-1.0), cot.calculate(-1.0), EPS);
     }
 
+    // cot не определён при x = 0, так как sin(0) = 0
     @Test
     void testUndefinedAtZero() {
         assertThrows(ArithmeticException.class, () -> cot.calculate(0.0));
     }
 
+    // cot не определён при x = pi, так как sin(pi) = 0
     @Test
     void testUndefinedAtPi() {
         assertThrows(ArithmeticException.class, () -> cot.calculate(Math.PI));

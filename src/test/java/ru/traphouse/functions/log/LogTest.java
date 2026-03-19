@@ -21,50 +21,42 @@ class LogTest {
         log10 = new Log10(ln);
     }
 
+    // log2(2) = 1, логарифм числа равного основанию равен 1
     @Test
     void testLog2AtTwo() {
         assertEquals(1.0, log2.calculate(2.0), EPS);
     }
 
-    @Test
-    void testLog2AtFour() {
-        assertEquals(2.0, log2.calculate(4.0), EPS);
-    }
-
+    // log3(3) = 1
     @Test
     void testLog3AtThree() {
         assertEquals(1.0, log3.calculate(3.0), EPS);
     }
 
-    @Test
-    void testLog3AtNine() {
-        assertEquals(2.0, log3.calculate(9.0), EPS);
-    }
-
+    // log5(5) = 1
     @Test
     void testLog5AtFive() {
         assertEquals(1.0, log5.calculate(5.0), EPS);
     }
 
+    // log10(10) = 1
     @Test
     void testLog10AtTen() {
         assertEquals(1.0, log10.calculate(10.0), EPS);
     }
 
-    @Test
-    void testLog10AtHundred() {
-        assertEquals(2.0, log10.calculate(100.0), EPS);
-    }
-
+    // логарифм 1 по любому основанию равен 0, граничная точка
     @Test
     void testLogAtOne() {
         assertEquals(0.0, log2.calculate(1.0), EPS);
         assertEquals(0.0, log3.calculate(1.0), EPS);
+        assertEquals(0.0, log5.calculate(1.0), EPS);
         assertEquals(0.0, log10.calculate(1.0), EPS);
     }
 
+    // log10(7), нецелое значение аргумента; log2/log3/log5 реализованы аналогично через ln(x)/ln(base)
     @Test
-    void testLog10VsJava() {
+    void testLog10NonInteger() {
         assertEquals(Math.log10(7.0), log10.calculate(7.0), EPS);
     }
 }

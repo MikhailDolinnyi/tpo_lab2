@@ -1,7 +1,5 @@
 package ru.traphouse.util;
 
-import ru.traphouse.system.FunctionSystem;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,8 +33,4 @@ public class CsvWriter {
         }
     }
 
-    public static void write(String path, double from, double to, double step,
-                              FunctionSystem system) throws IOException {
-        write(path, from, to, step, system::calculate, "F(x)");
-    }
 }

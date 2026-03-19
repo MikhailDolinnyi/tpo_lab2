@@ -12,7 +12,7 @@ public class Ln {
             throw new ArithmeticException("ln(x) is undefined for x <= 0, got: " + x);
         }
 
-        // ln(x) = 2 * Σ (1/(2k+1)) * ((x-1)/(x+1))^(2k+1), converges for all x > 0
+        // ln(x) = 2 * summ (1/(2k+1)) * ((x-1)/(x+1))^(2k+1)
         double t = (x - 1.0) / (x + 1.0);
         double t2 = t * t;
         double result = 0;

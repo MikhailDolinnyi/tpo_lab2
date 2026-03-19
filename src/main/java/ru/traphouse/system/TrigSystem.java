@@ -8,16 +8,7 @@ import ru.traphouse.functions.trig.Sin;
  * Тригонометрическая часть системы (x <= 0):
  * (((((cot(x) / csc(x)) / sin(x)) - csc(x)) ^ 3) ^ 2)
  */
-public class TrigSystem {
-    private final Sin sin;
-    private final Cot cot;
-    private final Csc csc;
-
-    public TrigSystem(Sin sin, Cot cot, Csc csc) {
-        this.sin = sin;
-        this.cot = cot;
-        this.csc = csc;
-    }
+public record TrigSystem(Sin sin, Cot cot, Csc csc) {
 
     public double calculate(double x) {
         // cot и csc сами бросят ArithmeticException если sin(x) = 0
